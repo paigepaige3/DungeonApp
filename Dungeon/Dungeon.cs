@@ -11,12 +11,13 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
-            bool outerLoop = true;
-            bool innerLoop = true;
+
+
 
 
             //TODO: Create a Player
 
+            bool outerLoop = true;
             do
             {
 
@@ -24,9 +25,10 @@ namespace Dungeon
 
                 //TODO: Create a Room
 
-
+                bool innerLoop = true;
                 do
                 {
+                    
                     Console.WriteLine("" +
                         "-=-=-=Menu=-=-=-\n" +
                         "A) Attack\n" +
