@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,12 @@ namespace Dungeon
         {
 
 
-
+            Console.WriteLine("Main");
+            Room();
+            Console.WriteLine("Monster and Room Created");
+            Console.WriteLine("Press any key to continue \n");
+            Console.ReadKey(true);
+            
 
             //TODO: Create a Player
 
@@ -70,5 +76,24 @@ namespace Dungeon
                 } while (innerLoop);//end inner loop 
             } while (outerLoop);//end outer loop
         }
+
+        private static void Room()
+        {
+            Random rand = new Random();
+            string[] rooms = new string[]
+            {
+                "Hall", 
+                "Bathroom", 
+                "Kitchen"
+            };
+            int room = rand.Next(3);
+            string choosenRoom = rooms[room];
+            Console.WriteLine($"Room: {choosenRoom}");
+        }
+
+
+
+
+
     }
 }
