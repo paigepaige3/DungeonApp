@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DungeonLibrary;
 
 namespace Dungeon
 {
@@ -16,10 +18,11 @@ namespace Dungeon
 
             Console.WriteLine("Main");
             Room();
+            Character();
             Console.WriteLine("Monster and Room Created");
             Console.WriteLine("Press any key to continue \n");
             Console.ReadKey(true);
-            
+
 
             //TODO: Create a Player
 
@@ -34,7 +37,7 @@ namespace Dungeon
                 bool innerLoop = true;
                 do
                 {
-                    
+
                     Console.WriteLine("" +
                         "-=-=-=Menu=-=-=-\n" +
                         "A) Attack\n" +
@@ -82,8 +85,8 @@ namespace Dungeon
             Random rand = new Random();
             string[] rooms = new string[]
             {
-                "Hall", 
-                "Bathroom", 
+                "Hall",
+                "Bathroom",
                 "Kitchen"
             };
             int room = rand.Next(3);
@@ -91,7 +94,27 @@ namespace Dungeon
             Console.WriteLine($"Room: {choosenRoom}");
         }
 
+        private static void Character()
+        {
+            Random rand = new Random();
 
+            Character c1 = new Character
+            {
+                Life = 5,
+                Name = "Cloud Jumper",
+                HitChance = 3,
+                Block = 2,
+                MaxLife = 3,
+                LifeNum = 4,
+            };
+            string[] characters = new string[]
+            {
+                
+            };
+            int character = rand.Next(3);
+            string choosenCharacter = characters[character];
+            Console.WriteLine($"Character:{choosenCharacter}");
+        }
 
 
 
