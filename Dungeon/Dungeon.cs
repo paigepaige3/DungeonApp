@@ -109,7 +109,9 @@ namespace Dungeon
             };
             string[] characters = new string[]
             {
-                
+                "Cloud Jumper",
+                "Cloud Jumper",
+                "Cloud Jumper"
             };
             int character = rand.Next(3);
             string choosenCharacter = characters[character];
