@@ -54,5 +54,6 @@ namespace DungeonLibrary
             int damage = scary + weaponDamage;
             return damage;
         }
+
     }
 }

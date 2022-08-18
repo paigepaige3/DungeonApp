@@ -30,6 +30,11 @@ namespace DungeonLibrary
                 $"Race = {Race}" +
                 $"Mood = {Mood}";
         }
+        public virtual int HitChance()
+        {
+            int chance = base.HitChance + 2;//Weapon.BonusHitChance;
+            return chance;
+        }
 
     }
 }
