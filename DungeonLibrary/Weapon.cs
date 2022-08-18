@@ -9,28 +9,15 @@ namespace DungeonLibrary
     public class Weapon
     {
         //fields
-        private int _minDamage;
         private int _maxDamage;
-        private string _weaponName;
+        private int _minDamage;
+        private WeaponType _weaponName;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        private int _randomDamage;
 
         //props
-        public int MinDamage
-        {
-            get { return _minDamage; }
-            set
-            {
-                if (value > 0)
-                {
-                    _minDamage = value;
-                }
-                else
-                {
-                    _minDamage = 1;
-                }
-            }
-        }
+
         public int MaxDamage
         {
             get { return _maxDamage; }
@@ -46,11 +33,23 @@ namespace DungeonLibrary
                 }
             }
         }
-        public string WeaponName
+        public int MinDamage
         {
-            get { return _weaponName; }
-            set { _weaponName = value; }
+            get { return _minDamage; }
+            set
+            {
+                if (value >= 0)
+                {
+                    _minDamage = value;
+                }
+                else
+                {
+                    _minDamage = 1;
+                }
+            }
         }
+        public WeaponType WeaponName
+        { get; set; }
         public int BonusHitChance
         {
             get { return _bonusHitChance; }
@@ -72,14 +71,30 @@ namespace DungeonLibrary
             set { _isTwoHanded = value; }
         }
 
+        private int RandomDamage
+        {
+            get { return _randomDamage; }
+            set
+            {
+                if (value > 0)
+                {
+                    _randomDamage = value;
+                }
+                else
+                {
+                    _randomDamage = 1;
+                }
+            }
+        }
         //collect
-        public Weapon(int minDamage, int maxDamage, string weaponName, int bonusHitChance, bool isTwoHanded)
+        public Weapon(int minDamage, int maxDamage, WeaponType weaponName, int bonusHitChance, bool isTwoHanded, int randomDamage)
         {
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             WeaponName = weaponName;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
+            RandomDamage = randomDamage;
         }
         public Weapon()
         {
@@ -92,12 +107,23 @@ namespace DungeonLibrary
                 "Max Damage: {1}" +
                 "Name: {3}" +
                 "Bonus Hit Chance: {4}" +
-                "Two Handed: {5}",
+                "Two Handed: {5}" +
+                "Total Damage: "
+                ,
                 MinDamage,
                 MaxDamage,
                 WeaponName,
                 BonusHitChance,
-                IsTwoHanded);
+                IsTwoHanded,
+                RandomDamage
+                );
+        }
+        public static int testDamage(Weapon damage)
+        {
+            Random rand = new Random();
+            int number = rand.Next(1, 15);
+            return damage.RandomDamage = number;
+
         }
     }
 }
