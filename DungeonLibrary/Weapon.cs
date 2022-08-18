@@ -11,10 +11,9 @@ namespace DungeonLibrary
         //fields
         private int _maxDamage;
         private int _minDamage;
-        private WeaponType _weaponName;
         private int _bonusHitChance;
         private bool _isTwoHanded;
-        private int _randomDamage;
+
 
         //props
 
@@ -50,6 +49,7 @@ namespace DungeonLibrary
         }
         public WeaponType WeaponName
         { get; set; }
+
         public int BonusHitChance
         {
             get { return _bonusHitChance; }
@@ -71,30 +71,15 @@ namespace DungeonLibrary
             set { _isTwoHanded = value; }
         }
 
-        private int RandomDamage
-        {
-            get { return _randomDamage; }
-            set
-            {
-                if (value > 0)
-                {
-                    _randomDamage = value;
-                }
-                else
-                {
-                    _randomDamage = 1;
-                }
-            }
-        }
+
         //collect
-        public Weapon(int minDamage, int maxDamage, WeaponType weaponName, int bonusHitChance, bool isTwoHanded, int randomDamage)
+        public Weapon(int minDamage, int maxDamage, WeaponType weaponName, int bonusHitChance, bool isTwoHanded)
         {
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             WeaponName = weaponName;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
-            RandomDamage = randomDamage;
         }
         public Weapon()
         {
@@ -107,23 +92,17 @@ namespace DungeonLibrary
                 "Max Damage: {1}" +
                 "Name: {3}" +
                 "Bonus Hit Chance: {4}" +
-                "Two Handed: {5}" +
-                "Total Damage: "
+                "Two Handed: {5}" 
+             
                 ,
                 MinDamage,
                 MaxDamage,
                 WeaponName,
                 BonusHitChance,
-                IsTwoHanded,
-                RandomDamage
+                IsTwoHanded
+
                 );
         }
-        public static int testDamage(Weapon damage)
-        {
-            Random rand = new Random();
-            int number = rand.Next(1, 15);
-            return damage.RandomDamage = number;
 
-        }
     }
 }

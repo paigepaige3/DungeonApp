@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DungeonLibrary;
 using System.Collections;
+using static System.Net.Mime.MediaTypeNames;
+using System.Reflection;
 
 namespace Dungeon
 {
@@ -16,11 +18,17 @@ namespace Dungeon
         static void Main(string[] args)
         {
             var weapons = Enum.GetValues(typeof(WeaponType));
+            Weapon w1 = new Weapon(1,2,WeaponType.Sword,1,true);
+            Weapon w2 = new Weapon(2, 3, WeaponType.Lance, 2, true);
+            Weapon w3 = new Weapon(3, 4, WeaponType.Crossbow, 3, true);
+            Weapon w4 = new Weapon(4, 5, WeaponType.Dagger, 4, false);
+            Weapon w6 = new Weapon(5, 6, WeaponType.Axe, 5, true);
 
 
             Console.WriteLine("Welcome");
             Room();
             Character();
+
             RandomWeapon();
             Console.WriteLine("Press any key to continue \n");
             Console.ReadKey(true);
@@ -112,16 +120,31 @@ namespace Dungeon
             string choosenCharacter = characters[character];
             Console.WriteLine($"You are Character:{choosenCharacter}");
 
-         
+
         }
 
         private static void RandomWeapon()
         {
-             Random random = new Random();
-             int weaponNumber = random.Next(1, 5);
-             int randomWeapon = (int)(WeaponType)weaponNumber;
-             Console.WriteLine($"Your Weapon: {randomWeapon}");
+            Random random = new Random();
+            int weaponNumber = random.Next(1, 5);
+            int randomWeapon = (int)(WeaponType)weaponNumber;
+            Console.WriteLine($"Your Weapon: {randomWeapon}");
 
+        }
+        private static void GetYourWeapon()
+        { 
+        }
+        public virtual int Damage()
+        {
+            Random rand = new Random();
+            int damage = rand.Next(1, 15);
+            return damage;
+        }
+        public virtual int CalcDamage()
+        {
+            Random rand = new Random();
+            int damage = rand.Next(1,5);
+            return 0;
         }
 
     }
