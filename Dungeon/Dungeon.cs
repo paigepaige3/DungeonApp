@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using DungeonLibrary;
+using System.Collections;
 
 namespace Dungeon
 {
@@ -14,12 +15,13 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
+            var weapons = Enum.GetValues(typeof(WeaponType));
 
 
-            Console.WriteLine("Main");
+            Console.WriteLine("Welcome");
             Room();
             Character();
-            Console.WriteLine("Monster and Room Created");
+            RandomWeapon();
             Console.WriteLine("Press any key to continue \n");
             Console.ReadKey(true);
 
@@ -39,7 +41,7 @@ namespace Dungeon
                 {
 
                     Console.WriteLine("" +
-                        "-=-=-=Menu=-=-=-\n" +
+                        "Do you choose to: \n" +
                         "A) Attack\n" +
                         "B) Run Away\n" +
                         "C) Charecter Info\n" +
@@ -53,8 +55,10 @@ namespace Dungeon
                     switch (choice)
                     {
                         case "a":
-                            Console.WriteLine("win - break out of innerloop");
+                            Console.WriteLine("Attack");
+                            Console.WriteLine($"");
                             innerLoop = false;
+                            Console.WriteLine($"");
                             break;
                         case "b":
                             Console.WriteLine("Leave inner loop");
@@ -78,6 +82,7 @@ namespace Dungeon
 
                 } while (innerLoop);//end inner loop 
             } while (outerLoop);//end outer loop
+
         }
 
         private static void Room()
@@ -91,34 +96,33 @@ namespace Dungeon
             };
             int room = rand.Next(3);
             string choosenRoom = rooms[room];
-            Console.WriteLine($"Room: {choosenRoom}");
+            Console.WriteLine($"You ar in Room: {choosenRoom}");
         }
 
         private static void Character()
         {
             Random rand = new Random();
-
-            Character c1 = new Character
-            {
-                Life = 5,
-                Name = "Cloud Jumper",
-                HitChance = 3,
-                Block = 2,
-                MaxLife = 3,
-                LifeNum = 4,
-            };
             string[] characters = new string[]
             {
                 "Cloud Jumper",
-                "Cloud Jumper",
-                "Cloud Jumper"
+                "Cloud Hopper",
+                "Cloud Skipper"
             };
             int character = rand.Next(3);
             string choosenCharacter = characters[character];
-            Console.WriteLine($"Character:{choosenCharacter}");
+            Console.WriteLine($"You are Character:{choosenCharacter}");
+
+         
         }
 
+        private static void RandomWeapon()
+        {
+             Random random = new Random();
+             int weaponNumber = random.Next(1, 5);
+             int randomWeapon = (int)(WeaponType)weaponNumber;
+             Console.WriteLine($"Your Weapon: {randomWeapon}");
 
+        }
 
     }
 }
