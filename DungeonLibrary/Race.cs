@@ -10,9 +10,13 @@ namespace DungeonLibrary
     {
         Gobblin = 1,
         Cyclops = 2,
-        Leprechauns = 3,
+        Leprechaun = 3,
         Gnomes = 4,
         Minotaur = 5,
+        Ogre = 6,
+        Oni = 7,
+        Golems = 8,
+        Dragon = 9,
 
     }
 }
