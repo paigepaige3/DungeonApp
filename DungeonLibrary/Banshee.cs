@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Banshee : Character
+    public class Banshee : Character
     {
 
         public int Scary { get; set; }
@@ -27,7 +27,7 @@ namespace DungeonLibrary
         }
         public int MaxDamage { get; set; }
         public string Description { get; set; }
-
+        public Banshee() { }
         public Banshee(int life, string name, int hitChance, int block, int maxLife, int lifeNum, int scary, int minDamage, int maxDamage, string description) : base(life, name, hitChance, block, maxLife, lifeNum)
         {
             Scary = scary;
@@ -46,11 +46,12 @@ namespace DungeonLibrary
                 $"Description = {Description}";
         }
 
-        public virtual int Damage()
+        public virtual int CalcDamage()
         {
             Random random = new Random();
             int scary = random.Next(1, 5);
-            int damage = scary * 2;
+            int weaponDamage = random.Next(/*eqweapon*/);
+            int damage = scary + weaponDamage;
             return damage;
         }
     }

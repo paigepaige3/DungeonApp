@@ -27,6 +27,7 @@ namespace DungeonLibrary
         public int MaxDamage { get; set; }
         public string Description { get; set; }
 
+        public Hydra() { }
         public Hydra(int life, string name, int hitChance, int block, int maxLife, int lifeNum, int numberOfHeads, int minDamage, int maxDamage, string description) : base(life,name, hitChance,block,maxLife,lifeNum)
         {
             NumberOfHeads = numberOfHeads;
@@ -45,11 +46,12 @@ namespace DungeonLibrary
                 $"Description = {Description}";
         }
 
-        public virtual int Damage()
+        public virtual int CalcDamage()
         {
             Random random = new Random();
             int numberOfHeads = random.Next(1, 6);
-            int damage = numberOfHeads * 2;
+            int weaponDamage = random.Next(/*eqweapon*/);
+            int damage = numberOfHeads + weaponDamage;
             return damage;
         }
 

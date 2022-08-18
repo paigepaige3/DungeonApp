@@ -119,8 +119,6 @@ namespace Dungeon
             int character = rand.Next(3);
             string choosenCharacter = characters[character];
             Console.WriteLine($"You are Character:{choosenCharacter}");
-
-
         }
 
         private static void RandomWeapon()
@@ -143,7 +141,7 @@ namespace Dungeon
         public virtual int CalcDamage()
         {
             Random rand = new Random();
-            int damage = rand.Next(1,5);
+            int weaponDamage = rand.Next();
             return 0;
         }
 
