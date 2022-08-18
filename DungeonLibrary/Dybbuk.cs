@@ -55,6 +55,5 @@ namespace DungeonLibrary
             return damage;
         }
 
-
     }
 }

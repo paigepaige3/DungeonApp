@@ -18,11 +18,17 @@ namespace Dungeon
         static void Main(string[] args)
         {
             var weapons = Enum.GetValues(typeof(WeaponType));
-            Weapon w1 = new Weapon(1,2,WeaponType.Sword,1,true);
+            Weapon w1 = new Weapon(1, 2, WeaponType.Sword, 1, true);
             Weapon w2 = new Weapon(2, 3, WeaponType.Lance, 2, true);
             Weapon w3 = new Weapon(3, 4, WeaponType.Crossbow, 3, true);
             Weapon w4 = new Weapon(4, 5, WeaponType.Dagger, 4, false);
             Weapon w6 = new Weapon(5, 6, WeaponType.Axe, 5, true);
+
+            Player p1 = new Player(1, "Person", 1,2,3,4,WeaponType.Lance,Race.Oni,true);
+            Player p2 = new Player(2, "Person", 2,3,4,3,WeaponType.Sword,Race.Ogre,true);
+            Player p3 = new Player(3, "Person", 3,4,5,2,WeaponType.Crossbow,Race.Gnomes,true);
+            Player p4 = new Player(2, "Person", 4,3,4,1,WeaponType.Axe,Race.Gnomes,true);
+            Player p5 = new Player(1, "Person", 3,2,3,2,WeaponType.Dagger,Race.Golems,true);
 
 
             Console.WriteLine("Welcome");
@@ -41,8 +47,6 @@ namespace Dungeon
             {
 
                 //TODO: Create a Monster
-
-                //TODO: Create a Room
 
                 bool innerLoop = true;
                 do
@@ -129,21 +133,8 @@ namespace Dungeon
             Console.WriteLine($"Your Weapon: {randomWeapon}");
 
         }
-        private static void GetYourWeapon()
-        { 
-        }
-        public virtual int Damage()
-        {
-            Random rand = new Random();
-            int damage = rand.Next(1, 15);
-            return damage;
-        }
-        public virtual int CalcDamage()
-        {
-            Random rand = new Random();
-            int weaponDamage = rand.Next();
-            return 0;
-        }
+
+
 
     }
 }
