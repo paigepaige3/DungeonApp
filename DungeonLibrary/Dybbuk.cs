@@ -27,6 +27,7 @@ namespace DungeonLibrary
         public int MaxDamage { get; set; }
         public string Description { get; set; }
 
+        public Dybbuk() { }
         public Dybbuk(int life, string name, int hitChance, int block, int maxLife, int lifeNum, int spooky, int minDamage, int maxDamage, string description) : base(life, name, hitChance, block, maxLife, lifeNum)
         {
             Spooky = spooky;
@@ -45,11 +46,12 @@ namespace DungeonLibrary
                 $"Description = {Description}";
         }
 
-        public virtual int Damage()
+        public virtual int CalcDamage()
         {
             Random random = new Random();
             int spookiness = random.Next(1, 5);
-            int damage = spookiness * 3;
+            int weaponDamage = random.Next(/*eqweapon*/);
+            int damage = spookiness + weaponDamage;
             return damage;
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Cyclops :Character
+    public class Cyclops : Character
     {
 
         public int EyeOfDoom { get; set; }
@@ -27,7 +27,7 @@ namespace DungeonLibrary
         }
         public int MaxDamage { get; set; }
         public string Description { get; set; }
-
+        public Cyclops() { }
         public Cyclops(int life, string name, int hitChance, int block, int maxLife, int lifeNum, int eyeOfDoom, int minDamage, int maxDamage, string description) : base(life, name, hitChance, block, maxLife, lifeNum)
         {
             EyeOfDoom = eyeOfDoom;
@@ -46,11 +46,12 @@ namespace DungeonLibrary
                 $"Description = {Description}";
         }
 
-        public virtual int Damage()
+        public virtual int CalcDamage()
         {
             Random random = new Random();
             int eyeScare = random.Next(1, 9);
-            int damage = eyeScare * 2;
+            int weaponDamage = random.Next(/*eqweapon*/);
+            int damage = eyeScare + weaponDamage;
             return damage;
         }
 
