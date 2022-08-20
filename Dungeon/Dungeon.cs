@@ -22,11 +22,20 @@ namespace Dungeon
 
             #region Weapons
             var weapons = Enum.GetValues(typeof(WeaponType));
-            Weapon w1 = new Weapon(1, 2, WeaponType.Sword, 1, true);
-            Weapon w2 = new Weapon(2, 3, WeaponType.Lance, 2, true);
-            Weapon w3 = new Weapon(3, 4, WeaponType.Crossbow, 3, true);
-            Weapon w4 = new Weapon(4, 5, WeaponType.Dagger, 4, false);
-            Weapon w6 = new Weapon(5, 6, WeaponType.Axe, 5, true);
+            Random random = new Random();
+            int weaponNumber = random.Next(1, 5);
+            WeaponType randomWeapon = (WeaponType)weaponNumber;
+            Console.WriteLine($"\nYour Weapon: {randomWeapon}");
+
+            Weapon w1 = new Weapon(1,2,$"{randomWeapon}", 3,true, randomWeapon);
+           //  Weapon w2 = new Weapon(1,1,"Lance", 1,true,WeaponType.Lance);
+           //  Weapon w3 = new Weapon(2, 3,"Crossbow", 4, true,WeaponType.Crossbow);
+           //  Weapon w4 = new Weapon(4, 5, "Dagger", 4, false, WeaponType.Crossbow);
+           //  Weapon w6 = new Weapon(5, 6, "Axe", 5, true, randomWeapon);
+            
+
+
+
 
             #endregion
 
@@ -45,11 +54,16 @@ namespace Dungeon
             #endregion
 
             #region Player
+            var moody = Enum.GetValues(typeof(Mood));
+            Random rand = new Random();
+            int randomMoodNumber = rand.Next(1, 6);
+            Mood mood = (Mood)randomMoodNumber;
+            Console.WriteLine($"Your Mood: {mood}");
 
             Console.Write("Howdy! Please tell us your name for the tombstone: ");
             string user = Console.ReadLine();
 
-            Player p1 = new Player(1, user, 1, 2, 3, 4, w1, userRaceChoice, true);
+            Player p1 = new Player(user,mood,50,5,50,50, userRaceChoice, w1);
             Console.Clear();
             Console.WriteLine($"\nWelcome {p1.Name}, your journey begins!");
             #endregion
@@ -60,7 +74,6 @@ namespace Dungeon
             do
             {
                 Room();
-                RandomWeapon();
                 Console.WriteLine("Press any key to continue \n");
                 Console.ReadKey(true);
 
@@ -122,7 +135,7 @@ namespace Dungeon
                 "at the Front Gates of hell and you forgot a welcome gift",
                 "at the Dovehouse in Mike Tysons mansion and you just offended his favorite pigeon",
                 "in Kim Kardashians Bathroom and you just made fun of her famous sink",
-                "at the Pearly Gates and you just brought up the show Lucifer"
+                "at the Pearly Gates and you just brought up the show Lucifer in small talk",
             };
             int room = rand.Next(3);
             string choosenRoom = rooms[room];
@@ -133,10 +146,6 @@ namespace Dungeon
 
         private static void RandomWeapon()
         {
-            Random random = new Random();
-            int weaponNumber = random.Next(1, 5);
-            WeaponType randomWeapon = (WeaponType)weaponNumber;
-            Console.WriteLine($"Your Weapon: {randomWeapon}");
 
         }
 

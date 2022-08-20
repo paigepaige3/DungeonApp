@@ -8,11 +8,11 @@ namespace DungeonLibrary
 {
     public enum Mood
     {
-        Happy,
-        Sad,
-        Angry,
-        Sleepy,
-        Energized,
-        Grumpy
+        Happy = 1,
+        Sad = 2,
+        Angry = 3,
+        Sleepy = 4,
+        Energized = 5,
+        Grumpy = 6
     }
 }
