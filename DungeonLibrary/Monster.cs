@@ -49,7 +49,10 @@ namespace DungeonLibrary
         }
         public override string ToString()
         {
-            return $" { Name} Life: { Life} of { MaxLife} \nDamage: { MinDamage} - { MaxDamage} \nBlock: { Block} \nDescription: { Description} ";
+            return $"\n{ Name} \n" +
+                $"Life: { Life} of { MaxLife} \n" +
+                $"Damage: { MinDamage} - { MaxDamage} \n" +
+                $"Block: { Block} ";
         }
 
         public override int CalcDamage()
@@ -57,11 +60,12 @@ namespace DungeonLibrary
             return new Random().Next(MinDamage, MaxDamage + 1);
         }
         public static Monster GetMonster()
-        {
-            Cyclops cyclops = new Cyclops   ("Cyclops",5,5,5,5,5,5,5, "Cyclops with eye of doom");
-            Dybbuk dybbuk = new Dybbuk      ("Dybbuk", 5, 5, 5, 5, 5, 5, 5, "Dybbuk is Spooky");
-            Hydra hydra = new Hydra         ("Hydra", 5, 5, 5, 5, 5, 5, 5, "Hyras have multiple heads");
-            Banshee banshee = new Banshee   ("Banshee", 5, 5, 5, 5, 5, 5, 5, "Banshee are very scary");
+        {   
+                                            //name      L   ML HC  B  MD        
+            Cyclops cyclops = new Cyclops   ("Cyclops" , 5, 5, 40, 5,  50, 5, 5, "Cyclops with eye of doom");
+            Dybbuk dybbuk = new Dybbuk      ("Dybbuk"  , 5, 5, 50, 7,  50, 6, 4, "Dybbuk is Spooky");
+            Hydra hydra = new Hydra         ("Hydra"   , 5, 5, 45, 5,  40, 7, 3, "Hyras have multiple heads");
+            Banshee banshee = new Banshee   ("Banshee" , 5, 5, 55, 10, 35, 8, 2, "Banshee are very scary");
 
             List<Monster> monsters = new () { cyclops , dybbuk, hydra, banshee };
 

@@ -30,7 +30,7 @@ namespace DungeonLibrary
         {
             return base.ToString() + $"" +
                 $"Eye of Doom: {Spooky}\n" +
-                $"Description: {Description}";
+                $"Description: {Description}\n\n";
         }
 
     }
