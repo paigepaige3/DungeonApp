@@ -31,7 +31,7 @@ namespace DungeonLibrary
         {
             return base.ToString() + $"" +
                 $"Eye of Doom: {NumberOfHeads}\n" +
-                $"Description: {Description}";
+                $"Description: {Description} \n\n";
 
 
         }
