@@ -10,11 +10,8 @@ namespace DungeonLibrary
 {
     public class Combat
     {
-
-
         public static void DoAttack(Character attacker, Character defender)
-        {
-            
+        {  
             Random rand = new Random();
             int diceRoll = rand.Next(1, 101);
             Thread.Sleep(300);
@@ -31,7 +28,6 @@ namespace DungeonLibrary
                 Console.WriteLine($"{attacker.Name} missed!");
             }
         }
-
         public static void DoBattle(Player player, Monster monster)
         {
             DoAttack(player, monster);
@@ -40,8 +36,5 @@ namespace DungeonLibrary
                 DoAttack(monster, player);
             }
         }
-
-
-
     }
 }

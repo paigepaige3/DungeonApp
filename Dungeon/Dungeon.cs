@@ -83,7 +83,7 @@ namespace Dungeon
                 do
                 {
 
-                    Console.WriteLine("" +
+                    Console.WriteLine("-=-=-=-=-=-=-=-" +
                         "Do you choose to: \n" +
                         "A) Attack\n" +
                         "B) Run Away\n" +

@@ -9,7 +9,6 @@ namespace DungeonLibrary
 {
     public sealed class Player : Character
     {
-
         public Weapon EquippedWeapon { get; set; }
         private Mood _characterMood;
         private Race _characterRace;
@@ -23,16 +22,14 @@ namespace DungeonLibrary
             get { return _characterRace; }
             set { _characterRace = value; }
         }
-
         public Player() { }
 
-        public Player(string name,Mood characterMood, int hitChance, int block, int maxLife, int life, Race characterRace, Weapon equippedWeapon)
+        public Player(string name, Mood characterMood, int hitChance, int block, int maxLife, int life, Race characterRace, Weapon equippedWeapon)
             : base(name, hitChance, block, maxLife, life)
         {
             CharacterMood = characterMood;
             EquippedWeapon = equippedWeapon;
             CharacterRace = characterRace;
-
             switch (CharacterRace)
             {
                 //Warning: Numbers DO NOT FOLLOW LORE
@@ -64,7 +61,7 @@ namespace DungeonLibrary
                 case Race.Golem:
                     break;
             }
-                switch (CharacterMood)
+            switch (CharacterMood)
             {
                 case Mood.Sad:
 
@@ -89,9 +86,6 @@ namespace DungeonLibrary
                     Block += 5;
                     break;
             }
-
-
-
         }
         public override string ToString()
         {
@@ -123,22 +117,18 @@ namespace DungeonLibrary
                     break;
             }
             return base.ToString() + $"\nWeapon: {EquippedWeapon.Name}\n" +
-                                      description;
+                                     description;
         }
-
         public override int CalcHitChance()
         {
             return base.CalcHitChance() + EquippedWeapon.BonusHitChance;
         }
         public override int CalcDamage()
         {
-
             Random rand = new Random();
             int damage = rand.Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);
             return damage;
 
-
         }
-
     }
 }
