@@ -44,7 +44,7 @@ namespace DungeonLibrary
                     Block += 3;
                     HitChance += 5;
                     break;
-                case Race.Gnomes:
+                case Race.Gnome:
                     MaxLife += 5;
                     Life += 5;
                     Block += 5;
@@ -61,7 +61,7 @@ namespace DungeonLibrary
                 case Race.Minotaur:
                     HitChance += 5;
                     break;
-                case Race.Golems:
+                case Race.Golem:
                     break;
             }
                 switch (CharacterMood)
@@ -99,25 +99,25 @@ namespace DungeonLibrary
             switch (CharacterRace)
             {
                 case Race.Gobblin:
-                    description = "Orc";
+                    description = "Gobblin";
                     break;
                 case Race.Leprechaun:
                     description = "Human";
                     break;
-                case Race.Gnomes:
-                    description = "Elf";
+                case Race.Gnome:
+                    description = "Leprechaun";
                     break;
                 case Race.Dragon:
-                    description = "Dwarf";
+                    description = "Dragon";
                     break;
                 case Race.Ogre:
-                    description = "Dwarf";
+                    description = "Ogre";
                     break;
                 case Race.Minotaur:
-                    description = "Dwarf";
+                    description = "Minotaur";
                     break;
-                case Race.Golems:
-                    description = "Dwarf";
+                case Race.Golem:
+                    description = "Golem";
                     break;
                 default:
                     break;
@@ -132,7 +132,6 @@ namespace DungeonLibrary
         }
         public override int CalcDamage()
         {
-            // return base.CalcDamage();   
 
             Random rand = new Random();
             int damage = rand.Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);

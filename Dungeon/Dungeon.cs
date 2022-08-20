@@ -11,6 +11,7 @@ using System.Collections;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Numerics;
+using System.Net.Http.Headers;
 
 namespace Dungeon
 {
@@ -76,6 +77,7 @@ namespace Dungeon
                 Console.ReadKey(true);
                 Monster monster = Monster.GetMonster();
                 Console.WriteLine("the Nightmare in your personal space: " + monster.Name);
+                Console.WriteLine($"You are a {race} in a {userMoodChoice} mood with your weapon being a {randomWeapon} and you must fight a {monster.Name}... Good Luck");
 
                 bool innerLoop = true;
                 do
@@ -107,7 +109,7 @@ namespace Dungeon
                             }
                             if (p1.Life <= 0)
                             {
-                                Console.WriteLine("you are as dead as a doonail!\a");
+                                Console.WriteLine("you are as dead as a doonail!\n\n\n\n");
                                 innerLoop = false;
                             }
 
@@ -128,7 +130,7 @@ namespace Dungeon
                             Console.WriteLine(monster);
                             break;
                         case "e":
-                            Console.WriteLine("Break out of both loops");
+                            Console.WriteLine("Monsters Defeated: "); ;
                             innerLoop = false;
                             outerLoop = false;
                             break;
@@ -139,7 +141,9 @@ namespace Dungeon
 
                 } while (innerLoop );//end inner loop 
             } while (outerLoop);//end outer loop
-
+            Console.WriteLine("You defeated " + score + " monster" + (score == 1 ? "." : "s."));
+            Console.WriteLine("\n\nThank you! Press any key to exit...");
+            Console.ReadKey();
         }
 
         private static void Room()
