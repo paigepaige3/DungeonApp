@@ -15,6 +15,5 @@ namespace DungeonLibrary
         Minotaur = 5,
         Ogre = 6,
         Golem = 7,
-
     }
 }

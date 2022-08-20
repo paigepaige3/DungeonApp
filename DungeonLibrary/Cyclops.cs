@@ -8,7 +8,6 @@ namespace DungeonLibrary
 {
     public class Cyclops : Monster
     {
-
         public int EyeOfDoom { get; set; }
         public string Description { get; set; }
 
@@ -18,22 +17,17 @@ namespace DungeonLibrary
             EyeOfDoom = eyeOfDoom;
             Description = description;
         }
-
-
         public override int CalcBlock()
         {
             Random random = new Random();
             Block = random.Next(1, 7);
             return Block;
         }
-
         public override string ToString()
         {
             return base.ToString() + $"" +
                 $"Eye of Doom: {EyeOfDoom}\n" +
                 $"Description: {Description}\n\n";
         }
-
-
     }
 }

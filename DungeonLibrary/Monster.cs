@@ -11,11 +11,8 @@ namespace DungeonLibrary
     public class Monster : Character 
     {
         public int MaxDamage { get; set; }
-
         public string Description { get; set; }
-
         private int _minDamage;
-
         public int MinDamage
         {
             get { return _minDamage; }
@@ -35,14 +32,12 @@ namespace DungeonLibrary
                 }
             }
         }
-
         public Monster(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description) : base(name, hitChance, block, maxLife, life)
         {
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             Description = description;
         }
-
         public Monster()
         {
             
@@ -54,7 +49,6 @@ namespace DungeonLibrary
                 $"Damage: { MinDamage} - { MaxDamage} \n" +
                 $"Block: { Block} ";
         }
-
         public override int CalcDamage()
         {
             return new Random().Next(MinDamage, MaxDamage + 1);
@@ -143,7 +137,6 @@ namespace DungeonLibrary
                 ");
 
             List<Monster> monsters = new () { cyclops , dybbuk, hydra, banshee };
-
             return monsters[new Random().Next(monsters.Count)];
         }
     }

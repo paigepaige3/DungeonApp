@@ -38,17 +38,14 @@ namespace DungeonLibrary
             get { return _life; }
             set
             {
-                
+
                 _life = value <= MaxLife ? value : MaxLife;
             }
         }
-
-
         public Character()
         {
 
         }
-
         public Character(string name, int hitChance, int block, int maxLife, int life)
         {
             Name = name;
@@ -57,7 +54,6 @@ namespace DungeonLibrary
             MaxLife = maxLife;
             Life = life;
         }
-
         public override string ToString()
         {
             return string.Format($"-=-=-=-=-=-=-=-=-\n" +

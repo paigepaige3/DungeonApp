@@ -13,6 +13,5 @@ namespace DungeonLibrary
         Dagger = 3,
         Sword = 4,
         Axe = 5,
-
     }
 }
