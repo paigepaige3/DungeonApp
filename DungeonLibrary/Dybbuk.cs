@@ -29,7 +29,7 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return base.ToString() + $"" +
-                $"Eye of Doom: {Spooky}\n" +
+                $"Fear Meter: {Spooky}\n" +
                 $"Description: {Description}\n\n";
         }
 

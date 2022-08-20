@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,10 +31,38 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return base.ToString() + $"" +
-                $"Eye of Doom: {Scary}\n" +
+                $"Scary Factor: {Scary}\n" +
                 $"Description: {Description} \n\n";
 
         }
 
+        public string Drawing()
+        {
+           
+            return $@"
+
+         ___--=--------___
+        /. \___\____   _, \_      /-\
+       /. .  _______     __/=====@
+       \----/  |  / \______/      \-/
+   _/         _/ o \
+  / |    o   /  ___ \
+ / /    o\\ |  / O \ /|      __-_
+|o|     o\\\   |  \ \ /__--o/o___-_
+| |      \\\-_  \____  ----  o___-
+|o|       \_ \     /\______-o\_-
+| \       _\ \  _/ / |
+\o \_   _/      __/ /
+ \   \-/   _       /|_
+  \_      / |   - \  |\
+    \____/  \ | /  \   |\
+            | o |   | \ |
+            | | |    \ | \
+           / | /      \ \ \
+         /|  \o|\--\  /  o |\--\
+         \----------' \---------'
+
+";
+        }
     }
 }

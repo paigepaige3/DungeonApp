@@ -11,10 +11,10 @@ namespace DungeonLibrary
         Gobblin = 1,
         Dragon = 2,
         Leprechaun = 3,
-        Gnomes = 4,
+        Gnome = 4,
         Minotaur = 5,
         Ogre = 6,
-        Golems = 7,
+        Golem = 7,
 
     }
 }
