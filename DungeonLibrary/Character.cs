@@ -123,12 +123,15 @@ namespace DungeonLibrary
                 "Life:{5}",
                 Life,
                 Name,
-                HitChance,
+                CalcHitChance,
                 Block,
                 MaxLife,
                 LifeNum);
         }
-       
+        public virtual int CalcHitChance()
+        {
+            return HitChance;
+        }
     }
 
 }

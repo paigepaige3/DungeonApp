@@ -10,6 +10,7 @@ using DungeonLibrary;
 using System.Collections;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
+using System.Numerics;
 
 namespace Dungeon
 {
@@ -17,6 +18,9 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
+            int score = 0;
+
+            #region Weapons
             var weapons = Enum.GetValues(typeof(WeaponType));
             Weapon w1 = new Weapon(1, 2, WeaponType.Sword, 1, true);
             Weapon w2 = new Weapon(2, 3, WeaponType.Lance, 2, true);
@@ -24,29 +28,42 @@ namespace Dungeon
             Weapon w4 = new Weapon(4, 5, WeaponType.Dagger, 4, false);
             Weapon w6 = new Weapon(5, 6, WeaponType.Axe, 5, true);
 
-            Player p1 = new Player(1, "Person", 1,2,3,4,WeaponType.Lance,Race.Oni,true);
-            Player p2 = new Player(2, "Person", 2,3,4,3,WeaponType.Sword,Race.Ogre,true);
-            Player p3 = new Player(3, "Person", 3,4,5,2,WeaponType.Crossbow,Race.Gnomes,true);
-            Player p4 = new Player(2, "Person", 4,3,4,1,WeaponType.Axe,Race.Gnomes,true);
-            Player p5 = new Player(1, "Person", 3,2,3,2,WeaponType.Dagger,Race.Golems,true);
+            #endregion
+
+            #region Races 
+            Console.WriteLine("\n Please select a race Using a number only");
+            var races = Enum.GetValues(typeof(Race));
+            int index = 1; //Because no one wants to choose from a list that starts with 0
+            foreach (var race in races)
+            {
+                Console.WriteLine($"{index}) {race}");
+                index++;
+            }
+            int userInput = int.Parse(Console.ReadLine());
+            Race userRaceChoice = (Race)userInput;
+            Console.WriteLine(userRaceChoice);
+            #endregion
+
+            #region Player
+
+            Console.Write("Howdy! Please tell us your name for the tombstone: ");
+            string user = Console.ReadLine();
+
+            Player p1 = new Player(1, user, 1, 2, 3, 4, w1, userRaceChoice, true);
+            Console.Clear();
+            Console.WriteLine($"\nWelcome {p1.Name}, your journey begins!");
+            #endregion
 
 
-            Console.WriteLine("Welcome");
-            Room();
-            Character();
-
-            RandomWeapon();
-            Console.WriteLine("Press any key to continue \n");
-            Console.ReadKey(true);
-
-
-            //TODO: Create a Player
 
             bool outerLoop = true;
             do
             {
+                Room();
+                RandomWeapon();
+                Console.WriteLine("Press any key to continue \n");
+                Console.ReadKey(true);
 
-                //TODO: Create a Monster
 
                 bool innerLoop = true;
                 do
@@ -92,7 +109,7 @@ namespace Dungeon
                             break;
                     }
 
-                } while (innerLoop);//end inner loop 
+                } while (innerLoop );//end inner loop 
             } while (outerLoop);//end outer loop
 
         }
@@ -102,34 +119,23 @@ namespace Dungeon
             Random rand = new Random();
             string[] rooms = new string[]
             {
-                "Hall",
-                "Bathroom",
-                "Kitchen"
+                "at the Front Gates of hell and you forgot a welcome gift",
+                "at the Dovehouse in Mike Tysons mansion and you just offended his favorite pigeon",
+                "in Kim Kardashians Bathroom and you just made fun of her famous sink",
+                "at the Pearly Gates and you just brought up the show Lucifer"
             };
             int room = rand.Next(3);
             string choosenRoom = rooms[room];
-            Console.WriteLine($"You ar in Room: {choosenRoom}");
+            Console.WriteLine($"You are: {choosenRoom}");
+            Console.WriteLine("Prepare for Battle");
         }
 
-        private static void Character()
-        {
-            Random rand = new Random();
-            string[] characters = new string[]
-            {
-                "Cloud Jumper",
-                "Cloud Hopper",
-                "Cloud Skipper"
-            };
-            int character = rand.Next(3);
-            string choosenCharacter = characters[character];
-            Console.WriteLine($"You are Character:{choosenCharacter}");
-        }
 
         private static void RandomWeapon()
         {
             Random random = new Random();
             int weaponNumber = random.Next(1, 5);
-            int randomWeapon = (int)(WeaponType)weaponNumber;
+            WeaponType randomWeapon = (WeaponType)weaponNumber;
             Console.WriteLine($"Your Weapon: {randomWeapon}");
 
         }
