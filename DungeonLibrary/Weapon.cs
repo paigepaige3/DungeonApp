@@ -6,103 +6,80 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Weapon
+    public class Weapon // MAKE IT PUBLIC!
     {
-        //fields
-        private int _maxDamage;
+        //Fields
         private int _minDamage;
+        private int _maxDamage;
+        private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        //Added 8/17, Block 3 Lab
+        private WeaponType _type;
 
 
-        //props
-
+        //Props
         public int MaxDamage
         {
             get { return _maxDamage; }
-            set
-            {
-                if (value > 0)
-                {
-                    _maxDamage = value;
-                }
-                else
-                {
-                    _maxDamage = 1;
-                }
-            }
-        }
-        public int MinDamage
+            set { _maxDamage = value; }
+        }//end MaxDamage
+
+        public string Name
         {
-            get { return _minDamage; }
-            set
-            {
-                if (value >= 0)
-                {
-                    _minDamage = value;
-                }
-                else
-                {
-                    _minDamage = 1;
-                }
-            }
-        }
-        public WeaponType WeaponName
-        { get; set; }
+            get { return _name; }
+            set { _name = value; }
+        }//end Name
 
         public int BonusHitChance
         {
             get { return _bonusHitChance; }
-            set
-            {
-                if (value > 0)
-                {
-                    _bonusHitChance = value;
-                }
-                else
-                {
-                    _bonusHitChance = 1;
-                }
-            }
-        }
+            set { _bonusHitChance = value; }
+        }//end BonusHitChance
+
         public bool IsTwoHanded
         {
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
+        }//end IsTwoHanded
+
+        public int MinDamage
+        {
+            get { return _minDamage; }
+            set { _minDamage = value > 0 && value <= MaxDamage ? value : 1; }
+        }//end MinDamage
+
+        public WeaponType Type
+        {
+            get { return _type; }
+            set { _type = value; }
         }
 
-
-        //collect
-        public Weapon(int minDamage, int maxDamage, WeaponType weaponName, int bonusHitChance, bool isTwoHanded)
+        //CTORS
+        public Weapon(int maxDamage, int minDamage, string name, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
+            //If you have ANY properties that have business rules
+            //that are based off of any OTHER properties... 
+            //set the other properties first!!
             MaxDamage = maxDamage;
             MinDamage = minDamage;
-            WeaponName = weaponName;
+            Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
-        }
-        public Weapon()
-        {
+            Type = type;
+        }//end FQ CTOR
 
-        }
+        //METHODS
         public override string ToString()
         {
-            return string.Format("" +
-                "Min Damage: {0}" +
-                "Max Damage: {1}" +
-                "Name: {3}" +
-                "Bonus Hit Chance: {4}" +
-                "Two Handed: {5}" 
-             
-                ,
+            return string.Format("{0}\t{1} to {2} Damage\n" +
+                "Bonus Hit: {3}%\n{4}\t\t{5}",
+                Name,
                 MinDamage,
                 MaxDamage,
-                WeaponName,
                 BonusHitChance,
-                IsTwoHanded
-
-                );
-        }
-
-    }
-}
+                Type,
+                IsTwoHanded ? "Two-Handed" : "One-Handed");
+        }//end ToString()
+    }//end class
+}//end namespace

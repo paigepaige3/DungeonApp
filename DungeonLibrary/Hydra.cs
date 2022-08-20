@@ -6,53 +6,34 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Hydra : Character
+    public class Hydra : Monster
     {
         public int NumberOfHeads { get; set; }
-        public int MinDamage
-        { 
-            get { return MinDamage; }
-            set 
-            {
-                if (value > 0 )
-                {
-                    MinDamage = value;
-                }
-                else
-                {
-                    MaxDamage = value;
-                }
-            }
-        }
-        public int MaxDamage { get; set; }
+
         public string Description { get; set; }
 
         public Hydra() { }
-        public Hydra(int life, string name, int hitChance, int block, int maxLife, int lifeNum, int numberOfHeads, int minDamage, int maxDamage, string description) : base(life,name, hitChance,block,maxLife,lifeNum)
+        public Hydra(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, int numberOfHeads, string description) : base(name, life, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
             NumberOfHeads = numberOfHeads;
-            MinDamage = minDamage;
-            MaxDamage = maxDamage;
             Description = description;
         }
 
 
+        public override int CalcBlock()
+        {
+            Random random = new Random();
+            Block = random.Next(2, 5);
+            return Block;
+        }
+
         public override string ToString()
         {
             return base.ToString() + $"" +
-                $"Number of Heads: {NumberOfHeads}\n" +
-                $"Min Damage = {MinDamage}" +
-                $"Max Damage = {MaxDamage}" +
-                $"Description = {Description}";
-        }
+                $"Eye of Doom: {NumberOfHeads}\n" +
+                $"Description: {Description}";
 
-        public virtual int CalcDamage()
-        {
-            Random random = new Random();
-            int numberOfHeads = random.Next(1, 6);
-            int weaponDamage = random.Next(/*eqweapon*/);
-            int damage = numberOfHeads + weaponDamage;
-            return damage;
+
         }
 
 
