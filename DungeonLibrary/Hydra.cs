@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Hydra : Monster
+    public sealed class Hydra : Monster
     {
         public int NumberOfHeads { get; set; }
         public string Description { get; set; }

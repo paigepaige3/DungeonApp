@@ -8,7 +8,7 @@ using DungeonLibrary;
 
 namespace DungeonLibrary
 {
-    public class Monster : Character 
+    public abstract class Monster : Character 
     {
         public int MaxDamage { get; set; }
         public string Description { get; set; }
