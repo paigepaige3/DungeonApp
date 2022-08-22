@@ -12,7 +12,7 @@ namespace DungeonLibrary
         public Weapon EquippedWeapon { get; set; }
         private Mood _characterMood;
         private Race _characterRace;
-        private Mood CharacterMood
+        public Mood CharacterMood
         {
             get { return _characterMood; }
             set { _characterMood = value; }
