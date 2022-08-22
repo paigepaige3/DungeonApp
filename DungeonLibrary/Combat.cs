@@ -8,7 +8,7 @@ using DungeonLibrary;
 
 namespace DungeonLibrary
 {
-    public class Combat
+    public sealed class Combat
     {
         public static void DoAttack(Character attacker, Character defender)
         {  

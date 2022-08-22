@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Banshee : Monster
+    public sealed class Banshee : Monster
     {
 
         public int Scary { get; set; }

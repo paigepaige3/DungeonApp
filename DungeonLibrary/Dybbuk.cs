@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Dybbuk : Monster
+    public sealed class Dybbuk : Monster
     {
         public int Spooky { get; set; }
         public string Description { get; set; }

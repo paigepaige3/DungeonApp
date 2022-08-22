@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Cyclops : Monster
+    public sealed class Cyclops : Monster
     {
         public int EyeOfDoom { get; set; }
         public string Description { get; set; }
