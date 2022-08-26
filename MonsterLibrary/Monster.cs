@@ -5,8 +5,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using DungeonLibrary;
+using MonsterLibrary; 
 
-namespace DungeonLibrary
+namespace MonsterLibrary
 {
     public abstract class Monster : Character 
     {

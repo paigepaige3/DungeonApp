@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DungeonLibrary;
 
 
-namespace DungeonLibrary
+namespace MonsterLibrary
 {
     public sealed class Combat
     {

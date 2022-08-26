@@ -12,6 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Numerics;
 using System.Net.Http.Headers;
+using MonsterLibrary;
 
 namespace Dungeon
 {
@@ -163,10 +164,6 @@ namespace Dungeon
         }
 
 
-        private static void RandomWeapon()
-        {
-
-        }
 
 
 
