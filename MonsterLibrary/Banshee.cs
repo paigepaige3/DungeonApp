@@ -1,34 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonLibrary
+namespace MonsterLibrary
 {
-    public sealed class Hydra : Monster
+    public sealed class Banshee : Monster
     {
-        public int NumberOfHeads { get; set; }
+
+        public int Scary { get; set; }
         public string Description { get; set; }
-        public Hydra() { }
-        public Hydra(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, int numberOfHeads, string description) : base(name, life, maxLife, hitChance, block, maxDamage, minDamage, description)
+        public Banshee() { }
+
+        public Banshee(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, int scary, string description) : base(name, life, maxLife,hitChance,block,maxDamage,minDamage,description)
         {
-            NumberOfHeads = numberOfHeads;
+            Scary = scary;
             Description = description;
         }
+
+
         public override int CalcBlock()
         {
             Random random = new Random();
-            Block = random.Next(2, 5);
+            Block = random.Next(1, 5);
             return Block;
         }
+
         public override string ToString()
         {
             return base.ToString() + $"" +
-                $"Number of Heads: {NumberOfHeads}\n" +
+                $"Scary Factor: {Scary}\n" +
                 $"Description: {Description} \n\n";
 
-
         }
+
+       
     }
 }
