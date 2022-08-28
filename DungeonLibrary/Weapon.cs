@@ -63,14 +63,8 @@ namespace DungeonLibrary
         }
         public override string ToString()
         {
-            return string.Format("{0}\t{1} to {2} Damage\n" +
-                "Bonus Hit: {3}%\n{4}\t\t{5}",
-                Name,
-                MinDamage,
-                MaxDamage,
-                BonusHitChance,
-                Type,
-                IsTwoHanded ? "Two-Handed" : "One-Handed");
+            return string.Format($"{Name}\t{MinDamage} to {MaxDamage} Damage\n" +
+                $"Bonus Hit: {BonusHitChance}%\n{Type}\t\t{IsTwoHanded}");
         }
     }
 }

@@ -9,7 +9,13 @@ namespace DungeonLibrary
 {
     public sealed class Player : Character
     {
-        public Weapon EquippedWeapon { get; set; }
+        private Weapon _equippedWeapon;
+        public Weapon EquippedWeapon
+        {
+            get { return _equippedWeapon; }
+            set { _equippedWeapon = value; }
+        }
+
         private Mood _characterMood;
         private Race _characterRace;
         public Mood CharacterMood

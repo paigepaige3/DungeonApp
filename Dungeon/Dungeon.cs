@@ -64,7 +64,7 @@ namespace Dungeon
             Console.Write("Howdy! Please tell us your name for the tombstone: ");
             string user = Console.ReadLine();
 
-            Player p1 = new Player(user,userMoodChoice, 45,25,55,55, race, w1);
+            Player p1 = new Player(user,userMoodChoice,45,25,55,55,race,w1);
             Console.Clear();
             #endregion
 
@@ -73,7 +73,7 @@ namespace Dungeon
             bool outerLoop = true;
             do
             {
-                Room();
+                GetRoom();
                 Console.WriteLine("Press any key to continue \n");
                 Console.ReadKey(true);
                 Monster monster = Monster.GetMonster();
@@ -104,7 +104,8 @@ namespace Dungeon
                             if (monster.Life <= 0)
                             {
                                 score++;
-                                Console.WriteLine($"\nYou killed {monster.Name}!");
+                                Console.WriteLine($"\nYou killed {monster.Name}!\n" +
+                                    $"Total number of monsters killed: {score}");
                                 Console.Beep(800, 500);
                                 innerLoop = false;
                             }
@@ -147,7 +148,7 @@ namespace Dungeon
             Console.ReadKey();
         }
 
-        private static void Room()
+        private static void GetRoom()
         {
             Random rand = new Random();
             string[] rooms = new string[]
