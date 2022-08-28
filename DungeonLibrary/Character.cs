@@ -57,12 +57,10 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return string.Format($"-=-=-=-=-=-=-=-=-\n" +
-                $"" +
                 $"{Name}\n" +
                 $"Life: {Life} of {MaxLife}\n" +
-                $"Hit Chance: {CalcHitChance}%\n " +
-                $"Block: {Block}\n" +
-                $"-=-=-=-=-=-=-=-=-");
+                $"Hit Chance: {CalcHitChance}%\n" +
+                $"Block: {Block}\n" );
         }
         public virtual int CalcBlock()
         {
