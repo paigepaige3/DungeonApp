@@ -42,10 +42,7 @@ namespace DungeonLibrary
                 _life = value <= MaxLife ? value : MaxLife;
             }
         }
-        public Character()
-        {
-
-        }
+        public Character() { }
         public Character(string name, int hitChance, int block, int maxLife, int life)
         {
             Name = name;
@@ -59,7 +56,7 @@ namespace DungeonLibrary
             return string.Format($"-=-=-=-=-=-=-=-=-\n" +
                 $"{Name}\n" +
                 $"Life: {Life} of {MaxLife}\n" +
-                $"Hit Chance: {CalcHitChance}%\n" +
+                $"Hit Chance: {CalcHitChance()}%\n" +
                 $"Block: {Block}\n" );
         }
         public virtual int CalcBlock()
