@@ -134,7 +134,6 @@ namespace DungeonLibrary
             Random rand = new Random();
             int damage = rand.Next(EquippedWeapon.MinDamage, EquippedWeapon.MaxDamage + 1);
             return damage;
-
         }
     }
 }

@@ -38,7 +38,6 @@ namespace DungeonLibrary
             get { return _life; }
             set
             {
-
                 _life = value <= MaxLife ? value : MaxLife;
             }
         }

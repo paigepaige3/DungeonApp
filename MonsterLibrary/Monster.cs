@@ -39,10 +39,7 @@ namespace MonsterLibrary
             MinDamage = minDamage;
             Description = description;
         }
-        public Monster()
-        {
-            
-        }
+        public Monster() {}
         public override string ToString()
         {
             return $"\n{ Name} \n" +
@@ -55,8 +52,7 @@ namespace MonsterLibrary
             return new Random().Next(MinDamage, MaxDamage + 1);
         }
         public static Monster GetMonster()
-        {   
-                                            //name      L   ML HC  B  MD        
+        {      
             Cyclops cyclops = new Cyclops   ("Cyclops" , 5, 5, 40, 5,  50, 5, 5, $@"
 
                      ___--=--------___
