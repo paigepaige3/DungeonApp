@@ -113,6 +113,7 @@ namespace Dungeon
                             {
                                 Console.WriteLine("you are as dead as a doonail!\n\n\n\n");
                                 innerLoop = false;
+                                outerLoop = false;
                             }
 
                             break;
