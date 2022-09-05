@@ -27,8 +27,6 @@ namespace MonsterLibrary
             return base.ToString() + $"" +
                 $"Number of Heads: {NumberOfHeads}\n" +
                 $"Description: {Description} \n\n";
-
-
         }
     }
 }

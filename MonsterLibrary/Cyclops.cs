@@ -12,7 +12,6 @@ namespace MonsterLibrary
     {
         public int EyeOfDoom { get; set; }
         public string Description { get; set; }
-
         public Cyclops() { }
         public Cyclops(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, int eyeOfDoom, string description) : base(name, life, maxLife, hitChance, block, maxDamage, minDamage, description)
         {

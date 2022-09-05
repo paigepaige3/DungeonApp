@@ -68,8 +68,6 @@ namespace Dungeon
             Console.Clear();
             #endregion
 
-
-
             bool outerLoop = true;
             do
             {
@@ -83,7 +81,6 @@ namespace Dungeon
                 bool innerLoop = true;
                 do
                 {
-
                     Console.WriteLine("-=-=-=-=-=-=-=-" +
                         "Do you choose to: \n" +
                         "A) Attack\n" +
@@ -92,7 +89,6 @@ namespace Dungeon
                         "D) Monster Info\n" +
                         "E) Exit\n" +
                         "-=-=-=-=-=-=-=-");
-
 
                     string choice = Console.ReadKey(true).Key.ToString().ToLower();
 
@@ -115,7 +111,6 @@ namespace Dungeon
                                 innerLoop = false;
                                 outerLoop = false;
                             }
-
                             break;
                         case "b":
                             Console.WriteLine("Leave inner loop");
@@ -141,14 +136,12 @@ namespace Dungeon
                             Console.WriteLine("invalid input, Try again");
                             break;
                     }
-
                 } while (innerLoop );//end inner loop 
             } while (outerLoop);//end outer loop
             Console.WriteLine("You defeated " + score + " monster" + (score == 1 ? "." : "s."));
             Console.WriteLine("\n\nThank you! Press any key to exit...");
             Console.ReadKey();
         }
-
         private static void GetRoom()
         {
             Random rand = new Random();
@@ -164,10 +157,5 @@ namespace Dungeon
             Console.WriteLine($"You are: {choosenRoom}");
             Console.WriteLine("Prepare for Battle");
         }
-
-
-
-
-
     }
 }

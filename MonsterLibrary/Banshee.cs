@@ -9,7 +9,6 @@ namespace MonsterLibrary
 {
     public sealed class Banshee : Monster
     {
-
         public int Scary { get; set; }
         public string Description { get; set; }
         public Banshee() { }
@@ -19,15 +18,12 @@ namespace MonsterLibrary
             Scary = scary;
             Description = description;
         }
-
-
         public override int CalcBlock()
         {
             Random random = new Random();
             Block = random.Next(1, 5);
             return Block;
         }
-
         public override string ToString()
         {
             return base.ToString() + $"" +
@@ -35,7 +31,5 @@ namespace MonsterLibrary
                 $"Description: {Description} \n\n";
 
         }
-
-       
     }
 }

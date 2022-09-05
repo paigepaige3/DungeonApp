@@ -21,25 +21,21 @@ namespace DungeonLibrary
             get { return _maxDamage; }
             set { _maxDamage = value; }
         }
-
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-
         public int BonusHitChance
         {
             get { return _bonusHitChance; }
             set { _bonusHitChance = value; }
         }
-
         public bool IsTwoHanded
         {
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
-
         public int MinDamage
         {
             get { return _minDamage; }
@@ -50,10 +46,8 @@ namespace DungeonLibrary
             get { return _type; }
             set { _type = value; }
         }
-
         public Weapon(int maxDamage, int minDamage, string name, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
-
             MaxDamage = maxDamage;
             MinDamage = minDamage;
             Name = name;
